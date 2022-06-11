@@ -18,7 +18,6 @@ var getUserRepos = function(user) {
     });
 };
 
-
 var userFormEl = document.querySelector("#user-form");
 var nameInputEl = document.querySelector("#username");
 var repoContainerEl = document.querySelector("#repos-container");
@@ -53,8 +52,9 @@ var displayRepos = function(repos, searchTerm) {
         var repoName = repos[i].owner.login + "/" + repos[i].name;
 
         // CREATE A CONTAINER FOR EACH REPO
-        var repoEl = document.createElement("div");
+        var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
 
         // CREATE SPAN ELEMENT TO HOLD REPOSITORY NAME
         var titleEl = document.createElement("span");
